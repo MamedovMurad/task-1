@@ -25,7 +25,7 @@ function App() {
     setInsidePoints, filterDataForMap,setlimit, reset } = mapData()
   return (
     <MantineProvider theme={theme}>
-      <div className='mt-10 px-10'>
+      <div className='mt-10 px-10' id='main-area'>
         <FormContainer
         reset={reset}
           gps_codes={data.map(item => item?.gps_code)}

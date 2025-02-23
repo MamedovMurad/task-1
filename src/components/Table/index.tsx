@@ -6,14 +6,14 @@ export default function PaginatedTable({
     data, page, limit, loading, setPage, paginatedData, setSelectedId, selectedId, insidePoints, setlimit
 }:
     {
-        data: IMockData[], 
+        data: IMockData[],
         paginatedData: IMockData[],
-        page: number, 
-        limit: number, 
+        page: number,
+        limit: number,
         loading: boolean,
         selectedId: number | null,
         insidePoints: { lng: number; lat: number }[],
-        setSelectedId: (param: number | null) => void, 
+        setSelectedId: (param: number | null) => void,
         setPage: (param: number) => void,
         setlimit: (param: number) => void,
     }) {
@@ -40,16 +40,16 @@ export default function PaginatedTable({
                             label="Items per page"
                             value={String(limit)} // Ensure value is a string
                             onChange={handleLimitChange} // Ensure value passed to onChange is string or null
-                            data={[10,15, 20, 30, 50,100].map(String)}  // Available options for limit
+                            data={[10, 15, 20, 30, 50, 100].map(String)}  // Available options for limit
                             style={{ width: 150 }}
                         />
                     </div>
 
-                    <Table 
-                        striped 
-                        highlightOnHover 
-                        withRowBorders={false} 
-                  
+                    <Table
+                        striped
+                        highlightOnHover
+                        withRowBorders={false}
+
                     >
                         <Table.Thead>
                             <Table.Tr className="text-xs">
@@ -77,14 +77,14 @@ export default function PaginatedTable({
                                     <Table.Td>{item.gps_code}</Table.Td>
                                     <Table.Td>{item.datetime}</Table.Td>
                                     <Table.Td>
-                                        <ActionIcon 
-                                            color={item.id === selectedId ? "#fa5252" : "#228be6"} 
-                                            variant="filled" 
-                                            aria-label="Settings" 
-                                            onClick={() => setSelectedId(item.id === selectedId ? null : item.id)}
+                                        <a href="#main-area">            <ActionIcon
+                                            color={item.id === selectedId ? "#fa5252" : "#228be6"}
+                                            variant="filled"
+                                            aria-label="Settings"
+                                            onClick={() => { setSelectedId(item.id === selectedId ? null : item.id); }}
                                         >
                                             {selectedId === item.id ? <CancelIcon color="white" /> : <SearchIcon color="white" />}
-                                        </ActionIcon>
+                                        </ActionIcon></a>
                                     </Table.Td>
                                 </Table.Tr>
                             ))}
