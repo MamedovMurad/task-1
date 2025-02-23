@@ -12,6 +12,7 @@ export function useMapData() {
     const paginatedData: IMockData[] = data.slice((page - 1) * limit, page * limit);
 
 
+    
     async function filterData(values: any) {
         setLoading(true);
         try {
@@ -27,7 +28,7 @@ export function useMapData() {
                 // Only apply filters for non-empty fields
 
                 const itemBirthYear = item.birth_year;
-                console.log(((birth_year_to)), 'filterrr');
+      
                 return (
                     (firstName ? item.first_name.toLowerCase().includes(firstName.toLowerCase()) : true) &&
                     (lastName ? item.last_name.toLowerCase().includes(lastName.toLowerCase()) : true) &&

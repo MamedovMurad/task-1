@@ -41,6 +41,7 @@ function FormContainer({ gps_codes, filterData, reset }: Props) {
                                 data={uniq}
                                 searchable
                                 clearable
+                                {...form.getInputProps('gpsCode')}
                                 maxDropdownHeight={200} // Max height for the dropdown
                                 styles={{
                                     input: {
